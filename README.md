@@ -37,10 +37,15 @@ A livello di trasporto, il browser si connette a:
 Poiché 80 e 443 sono porte predefinite per HTTP e HTTPS, il browser non le mostra nella barra degli indirizzi. Tuttavia, è possibile utilizzare porte personalizzate per accedere a un servizio. Ad esempio, `https://127.0.0.1:8834/` si connetterà a 127.0.0.1 (localhost) sulla porta 8834 tramite il protocollo HTTPS, e se un server HTTPS è in ascolto su quella porta, riceveremo una pagina web.
 
 Mentre si naviga in una pagina web, è possibile premere **Ctrl + Shift + I** su un PC o **Option + Command + I** (⌥ + ⌘ + I) su un Mac per aprire gli **Strumenti per Sviluppatori** in Firefox. Scorciatoie simili funzionano anche su Google Chrome o Chromium. Gli Strumenti per Sviluppatori permettono di ispezionare molte cose che il browser ha ricevuto e scambiato con il server remoto, come modificare i file JavaScript (JS), ispezionare i cookie impostati sul sistema e scoprire la struttura delle cartelle dei contenuti del sito.
+![image](https://github.com/user-attachments/assets/95902e76-7c00-491e-876a-753888059b19)
+Questo è un esempio dei Developer Tools su Firefox.
 
 Esistono anche numerosi componenti aggiuntivi per Firefox e Chrome utili nei test di penetrazione. Ecco alcuni esempi:
 
 - **FoxyProxy**: consente di cambiare rapidamente il server proxy utilizzato per accedere al sito target. È comodo quando si utilizza uno strumento come Burp Suite o se è necessario cambiare regolarmente server proxy. Puoi ottenere FoxyProxy per Firefox da [qui](https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/).
+
+  > **Nota:** Un server proxy è un intermediario tra il tuo dispositivo (come un computer o uno smartphone) e Internet. Quando utilizzi un proxy, le tue richieste di connessione a siti web o servizi online vengono prima inviate al server proxy, che poi inoltra queste richieste al sito desiderato. Quando il server proxy riceve la risposta dal sito, la inoltra a te..
+
   
 - **User-Agent Switcher and Manager**: permette di fingere di accedere alla pagina web da un sistema operativo o un browser web diverso. Ad esempio, puoi fingere di navigare su un sito usando un iPhone mentre in realtà stai accedendo da Mozilla Firefox. Puoi scaricare User-Agent Switcher and Manager per Firefox da [qui](https://addons.mozilla.org/en-US/firefox/addon/user-agent-string-switcher/).
   
