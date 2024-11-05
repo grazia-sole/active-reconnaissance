@@ -95,3 +95,47 @@ Quando non ricevi una risposta, ciò può indicare che:
 - È scollegato dalla rete o c'è un dispositivo di rete guasto.
 - Un firewall sta bloccando i pacchetti.
 
+---
+
+## Traceroute: Tracciare il Percorso dei Pacchetti
+
+Il comando `traceroute` ha lo scopo di tracciare il percorso dei pacchetti dal tuo sistema a un altro host, rivelando gli indirizzi IP dei router (o salti) attraversati lungo il tragitto. Questo comando è utile per determinare il numero di router tra i due sistemi e il percorso che i pacchetti seguono, il quale può variare poiché molti router utilizzano protocolli di routing dinamico che si adattano ai cambiamenti nella rete.
+
+### Comandi
+
+- Su Linux e macOS: 
+  ```
+  traceroute 10.10.216.106
+  ```
+- Su Windows: 
+  ```
+  tracert 10.10.216.106
+  ```
+
+`traceroute` utilizza ICMP per "ingannare" i router affinché rivelino i loro indirizzi IP, sfruttando un valore di Time To Live (TTL) impostato in modo strategico. Anche se il "T" in TTL sta per tempo, questo valore indica il numero massimo di router che un pacchetto può attraversare prima di essere scartato. Ogni router che riceve un pacchetto decrementa il TTL di uno. Se il TTL raggiunge 0, il pacchetto viene scartato e viene inviato un messaggio ICMP "Time-to-Live exceeded" al mittente originale.
+
+Quando il sistema invia un pacchetto con TTL=1, il primo router lo scarta, inviando un messaggio ICMP al mittente, rivelando così il suo indirizzo. Il processo continua aumentando il TTL, consentendo a `traceroute` di scoprire gli indirizzi IP di ogni router lungo il percorso.
+
+### Output di Traceroute
+
+Ecco un esempio di utilizzo del comando:
+
+```
+traceroute tryhackme.com
+```
+
+Nell'output di `traceroute`, ogni riga rappresenta un router/salto. Il sistema invia tre pacchetti per ogni valore di TTL, e si può ricevere risposta da diversi router. L'output include i tempi di risposta, ad esempio:
+
+```
+12 99.83.69.207 (99.83.69.207) 17.603 ms 15.827 ms 17.351 ms
+```
+
+In alcuni casi, potrebbero non arrivare tutte le risposte attese, come indicato da asterischi in corrispondenza dei pacchetti non ricevuti.
+
+### Considerazioni Finali
+
+- Il numero di salti/router varia in base al momento in cui si esegue `traceroute`; non vi è alcuna garanzia che i pacchetti seguano sempre lo stesso percorso.
+- Alcuni router potrebbero restituire indirizzi IP pubblici, fornendo spunti per eventuali test di penetrazione.
+- Alcuni router potrebbero non rispondere affatto.
+
+In sintesi, `traceroute` è uno strumento potente per diagnosticare il percorso e la latenza tra il tuo sistema e un altro host, ma il percorso può cambiare nel tempo a causa della natura dinamica delle reti.
