@@ -181,6 +181,8 @@ Server: nginx/1.6.2
 
 ### Considerazioni Finali
 
+![image](https://github.com/user-attachments/assets/0389fd28-8bda-4600-8de1-153cbd8a5ba7)
+
 - **Informazioni Utili**: Nell'output, l'intestazione `Server: nginx/1.6.2` è particolarmente interessante, poiché indica il tipo e la versione del server web in uso.
 - **Protocollo Specifico**: Se ci si connette a un server di posta, è necessario utilizzare i comandi appropriati per il protocollo in uso, come SMTP o POP3.
 
