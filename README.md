@@ -113,6 +113,7 @@ Il comando `traceroute` ha lo scopo di tracciare il percorso dei pacchetti dal t
   ```
 
 `traceroute` utilizza ICMP per "ingannare" i router affinché rivelino i loro indirizzi IP, sfruttando un valore di Time To Live (TTL) impostato in modo strategico. Anche se il "T" in TTL sta per tempo, questo valore indica il numero massimo di router che un pacchetto può attraversare prima di essere scartato. Ogni router che riceve un pacchetto decrementa il TTL di uno. Se il TTL raggiunge 0, il pacchetto viene scartato e viene inviato un messaggio ICMP "Time-to-Live exceeded" al mittente originale.
+![image](https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/e82c42dcfae78ac592a8d7843465d2d6.png)
 
 Quando il sistema invia un pacchetto con TTL=1, il primo router lo scarta, inviando un messaggio ICMP al mittente, rivelando così il suo indirizzo. Il processo continua aumentando il TTL, consentendo a `traceroute` di scoprire gli indirizzi IP di ogni router lungo il percorso.
 
