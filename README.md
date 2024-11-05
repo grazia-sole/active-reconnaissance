@@ -79,18 +79,11 @@ Il comando `ping` è utilizzato per verificare la connettività di rete tra due 
   ```
 
 - **Output**: Mostra il numero di pacchetti inviati, ricevuti e il tempo medio di risposta.
+- **Nota**: per bloccare il ping `CTRL C`
 
-**Esempio**:
- > **Nota:** user@AttackBox$ ping -c 5 MACHINE_IP
-> PING MACHINE_IP (MACHINE_IP) 56(84) bytes of data.
-> 64 bytes from MACHINE_IP: icmp_seq=1 ttl=64 time=0.636 ms
-> 64 bytes from MACHINE_IP: icmp_seq=2 ttl=64 time=0.483 ms
-> 64 bytes from MACHINE_IP: icmp_seq=3 ttl=64 time=0.396 ms
-> 64 bytes from MACHINE_IP: icmp_seq=4 ttl=64 time=0.416 ms
-> 64 bytes from MACHINE_IP: icmp_seq=5 ttl=64 time=0.445 ms
-> --- MACHINE_IP ping statistics ---
-> 5 packets transmitted, 5 received, 0% packet loss, time 4097ms
-> rtt min/avg/max/mdev = 0.396/0.475/0.636/0.086 ms
+### Esempio:
+![image](https://github.com/user-attachments/assets/7e1e8604-b8e5-4b8b-b500-2a74fea452ce)
+
 
 Quando non ricevi una risposta, ciò può indicare che:
 - Il computer di destinazione non è attivo o non risponde.
