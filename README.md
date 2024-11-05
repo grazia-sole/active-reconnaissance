@@ -140,3 +140,48 @@ In alcuni casi, potrebbero non arrivare tutte le risposte attese, come indicato 
 - Alcuni router potrebbero non rispondere affatto.
 
 In sintesi, `traceroute` è uno strumento potente per diagnosticare il percorso e la latenza tra il tuo sistema e un altro host, ma il percorso può cambiare nel tempo a causa della natura dinamica delle reti.
+
+---
+
+
+## TELNET: Protocollo di Comunicazione Remota
+
+Il protocollo TELNET (Teletype Network) è stato sviluppato nel 1969 per consentire la comunicazione con un sistema remoto tramite un'interfaccia a riga di comando (CLI). Il comando `telnet` utilizza questo protocollo per l'amministrazione remota, impiegando la porta predefinita 23. 
+
+### Sicurezza
+
+Da un punto di vista della sicurezza, TELNET trasmette tutti i dati, inclusi username e password, in chiaro, rendendo facile per chiunque abbia accesso al canale di comunicazione rubare le credenziali di accesso. Per un'alternativa più sicura, è consigliato utilizzare SSH (Secure SHell), che crittografa i dati trasmessi.
+
+### Utilizzo del Cliente Telnet
+
+Nonostante le sue limitazioni in termini di sicurezza, il client TELNET può essere impiegato anche per altri scopi, poiché si basa sul protocollo TCP. È possibile utilizzarlo per connettersi a qualsiasi servizio TCP e raccogliere informazioni, come ad esempio il banner del servizio.
+
+#### Esempio di Connessione a un Servizio Web
+
+Per scoprire ulteriori informazioni su un server web in ascolto sulla porta 80, puoi connetterti al server e comunicare utilizzando il protocollo HTTP. Ecco un esempio di come farlo:
+
+```
+telnet 10.10.216.106 80
+```
+
+Dopo esserti connesso, puoi inviare una richiesta HTTP. Ad esempio, per ottenere la pagina principale, digita:
+
+```
+GET / HTTP/1.1
+host: example
+```
+
+Dovrai premere invio due volte per ricevere una risposta valida. Questo comando richiede al server la pagina principale e, se tutto è impostato correttamente, otterrai una risposta come:
+
+```
+HTTP/1.1 200 OK
+Server: nginx/1.6.2
+...
+```
+
+### Considerazioni Finali
+
+- **Informazioni Utili**: Nell'output, l'intestazione `Server: nginx/1.6.2` è particolarmente interessante, poiché indica il tipo e la versione del server web in uso.
+- **Protocollo Specifico**: Se ci si connette a un server di posta, è necessario utilizzare i comandi appropriati per il protocollo in uso, come SMTP o POP3.
+
+In sintesi, mentre TELNET è utile per l'amministrazione remota, la sua trasmissione di dati in chiaro lo rende inadatto per l'uso in contesti sensibili, e si consiglia di preferire protocolli più sicuri come SSH. Tuttavia, la sua semplicità lo rende uno strumento pratico per esplorare e interagire con vari servizi TCP.
