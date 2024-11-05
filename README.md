@@ -81,8 +81,13 @@ Il comando `ping` è utilizzato per verificare la connettività di rete tra due 
 - **Output**: Mostra il numero di pacchetti inviati, ricevuti e il tempo medio di risposta.
 - **Nota**: per bloccare il ping `CTRL C`
 
-### Esempio:
+### Esempi:
 ![image](https://github.com/user-attachments/assets/7e1e8604-b8e5-4b8b-b500-2a74fea452ce)
+Da questo esempio si nota una risosta al ping, dunque è online e raggiungibile.
+
+![image](https://github.com/user-attachments/assets/6531a373-9b90-4656-a81c-3bb850c18d29)
+Da questo esempio si nota che non vi sono risposte al ping, e che l'host non è raggiungibile.
+
 
 
 Quando non ricevi una risposta, ciò può indicare che:
