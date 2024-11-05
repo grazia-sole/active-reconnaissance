@@ -189,9 +189,7 @@ Server: nginx/1.6.2
 In sintesi, mentre TELNET è utile per l'amministrazione remota, la sua trasmissione di dati in chiaro lo rende inadatto per l'uso in contesti sensibili, e si consiglia di preferire protocolli più sicuri come SSH. Tuttavia, la sua semplicità lo rende uno strumento pratico per esplorare e interagire con vari servizi TCP.
 
 ---
-Ecco una sintesi delle funzionalità e dell'utilizzo di Netcat (nc), uno strumento versatile per i penetration tester:
 
----
 
 ## Netcat (nc)
 
