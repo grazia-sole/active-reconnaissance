@@ -187,3 +187,73 @@ Server: nginx/1.6.2
 - **Protocollo Specifico**: Se ci si connette a un server di posta, è necessario utilizzare i comandi appropriati per il protocollo in uso, come SMTP o POP3.
 
 In sintesi, mentre TELNET è utile per l'amministrazione remota, la sua trasmissione di dati in chiaro lo rende inadatto per l'uso in contesti sensibili, e si consiglia di preferire protocolli più sicuri come SSH. Tuttavia, la sua semplicità lo rende uno strumento pratico per esplorare e interagire con vari servizi TCP.
+
+---
+Ecco una sintesi delle funzionalità e dell'utilizzo di Netcat (nc), uno strumento versatile per i penetration tester:
+
+---
+
+## Netcat (nc)
+
+Netcat, comunemente noto come `nc`, è uno strumento potente utilizzato per varie applicazioni nel campo del penetration testing. Supporta sia i protocolli TCP che UDP e può funzionare sia come client che come server.
+
+### Funzionalità Principali
+
+1. **Connessione a un Server**: Proprio come con Telnet, puoi utilizzare Netcat per connetterti a un server e raccogliere il suo banner. Ad esempio, per connetterti al server in ascolto sulla porta 80:
+
+   ```
+   nc 10.10.216.106 80
+   ```
+
+   Successivamente, puoi inviare una richiesta HTTP:
+
+   ```
+   GET / HTTP/1.1
+   host: netcat
+   ```
+
+   Questo comando comunica al server che il client supporta HTTP versione 1.1. La risposta potrebbe indicare il tipo e la versione del server, come:
+
+   ```
+   Server: nginx/1.6.2
+   ```
+
+2. **Ascolto su una Porta**: Netcat può anche essere utilizzato per aprire e ascoltare su una porta specifica. Sul sistema server, puoi avviare Netcat in modalità di ascolto con:
+
+   ```
+   nc -vnlp 1234
+   ```
+
+   - **Opzioni Utilizzate**:
+     - `-l`: Modalità di ascolto.
+     - `-p`: Specifica il numero di porta.
+     - `-n`: Non risolvere i nomi host tramite DNS.
+     - `-v`: Uscita verbosa per scoprire eventuali errori.
+
+   Nota che le porte inferiori a 1024 richiedono privilegi di root per essere aperte.
+
+3. **Echo**: Una volta che hai avviato un server in ascolto, puoi connetterti da un client usando:
+
+   ```
+   nc 10.10.216.106 1234
+   ```
+
+   In questo modo, qualsiasi cosa tu scriva sul client verrà "ecoata" sul server e viceversa, creando un tunnel TCP bidirezionale per la comunicazione.
+
+### Esempio di Utilizzo
+
+- **Server**: 
+  ```
+  nc -vnlp 1234
+  ```
+
+- **Client**: 
+  ```
+  nc 10.10.216.106 1234
+  ```
+
+Quando il client si connette, entrambi i lati possono comunicare digitando messaggi, dimostrando la facilità d'uso di Netcat per testare e interagire con servizi di rete.
+
+### Considerazioni Finali
+
+Netcat è uno strumento estremamente utile e versatile nel toolkit di un pentester, consentendo la raccolta di informazioni, il testing della rete e la comunicazione semplice tra sistemi. Grazie alla sua capacità di gestire sia TCP che UDP, è un'opzione preferita per diverse operazioni di rete.
